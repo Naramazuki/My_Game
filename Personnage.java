@@ -6,11 +6,12 @@ class Personnage{
     private String Sex;    // Sex of the person
     private int Force;      // Force of the person
     private int Experience;     // Experience of the person
+    private int pv; // Pv of the person
     Personnage(){
-        this.Name = "Inconnu";
-        this.Race = "Inconnue";
-        this.Sex = "Inconnu";
-        this.Lv=0;
+        this.setName("inconnu");
+        this.setRace("inconnue");
+        this.setSex("inconnu");
+        this.setLv(0);
        
     }
     public int getExperience() {
@@ -32,6 +33,9 @@ class Personnage{
     public String getRace() {
         return this.Race;
     }
+    public int getPv() {
+        return this.pv;
+    }
     public void setName(String name) {
         this.Name = name;
     }
@@ -50,6 +54,17 @@ class Personnage{
     }
     public void setExperience(int experience) {
         this.Experience = experience;
+    }
+    public void setPv(int pv) {
+        this.pv = pv;
+    }
+    public void attaque(Personnage p){
+        if (this.getForce()<p.getForce()) {
+            this.setPv(p.getForce()-this.getForce());
+        }
+        if(this.getForce()>p.getForce()){
+            p.setPv(this.getForce()-p.getForce());
+        }
     }
 }
 

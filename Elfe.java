@@ -6,6 +6,7 @@ public class Elfe extends Personnage implements Race  {
         this.setLv(0);
         this.setSex(gender);
         this.setForce(400);  // mettre en place la notion de vitesse pour les attaques
+        this.setPv(500);
     }
     @Override
     public void bonus() {

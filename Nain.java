@@ -6,6 +6,7 @@ public class Nain extends Personnage implements Race  {
         this.setLv(0);
         this.setSex(gender);
         this.setForce(500);
+        this.setPv(this.getForce()*2);
     }
     @Override
     public void bonus() {
