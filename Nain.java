@@ -13,5 +13,10 @@ public class Nain extends Personnage implements Race  {
         // TODO Auto-generated method stub
         
     }
-    
+    @Override
+    public void attaque(Personnage p) {
+            // TODO Auto-generated method stub
+            super.attaque(p);
+            this.bonus();
+    }
 }

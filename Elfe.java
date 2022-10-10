@@ -11,7 +11,13 @@ public class Elfe extends Personnage implements Race  {
     @Override
     public void bonus() {
         // TODO Auto-generated method stub
+        this.dealDamage(this.getPv()/this.getForce());
         
     }
-    
+    @Override
+    public void attaque(Personnage p) {
+        // TODO Auto-generated method stub
+        super.attaque(p);
+        this.bonus();
+    }
 }

@@ -1,3 +1,4 @@
+import java.util.Random;
 
 class Personnage{
     private String Name;  // Name of the person
@@ -7,12 +8,17 @@ class Personnage{
     private int Force;      // Force of the person
     private int Experience;     // Experience of the person
     private int pv; // Pv of the person
+    private  int maxPv; // Max pv of the person
+    private int barExperience; // Experience's bar of the person
     Personnage(){
         this.setName("inconnu");
         this.setRace("inconnue");
         this.setSex("inconnu");
         this.setLv(0);
        
+    }
+    public int getMaxPv() {
+        return this.maxPv;
     }
     public int getExperience() {
         return this.Experience;
@@ -58,13 +64,40 @@ class Personnage{
     public void setPv(int pv) {
         this.pv = pv;
     }
+    public void setMaxPv(int maxPv) {
+        this.maxPv = maxPv;
+    }
     public void attaque(Personnage p){
         if (this.getForce()<p.getForce()) {
-            this.setPv(p.getForce()-this.getForce());
+            this.dealDamage(p.getForce()-this.getForce());
         }
         if(this.getForce()>p.getForce()){
-            p.setPv(this.getForce()-p.getForce());
+            p.dealDamage(this.getForce()-p.getForce());
         }
+        else{
+            Random r= new Random();
+            int chance=r.nextInt(10);
+            if(chance>4){
+                this.dealDamage(this.getPv()-chance);
+                
+            }
+            else{
+                p.dealDamage(p.getPv()-chance);
+            }
+        }
+    }
+    public void dealDamage(int damage) {
+        this.setPv(damage);
+    }
+    public void aTue(Personnage p){
+        if(this.getLv()>30){
+            this.setExperience(this.getExperience()+p.getLv()/p.getForce());
+
+        }
+        else{
+            this.setExperience(this.getExperience()+p.getForce());
+        }
+
     }
 }
 
