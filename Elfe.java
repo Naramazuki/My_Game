@@ -1,5 +1,5 @@
 public class Elfe extends Personnage implements Race  {
-    
+    // vasy la vie est belle 
     Elfe(String name, String gender){
         this.setRace("Elfe");
         this.setName(name);
