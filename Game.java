@@ -11,6 +11,7 @@ public class Game {
 
         p.attaque(w);
         System.out.println(" les pv de "+p.getName()+" sont "+ p.getPv());
+        sc.close();
     }
     
 }

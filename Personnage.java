@@ -14,8 +14,11 @@ class Personnage{
         this.setName("inconnu");
         this.setRace("inconnue");
         this.setSex("inconnu");
-        this.setLv(0);
+        this.setLv(1);
        
+    }
+    public int getBarExperience() {
+        return this.barExperience;
     }
     public int getMaxPv() {
         return this.maxPv;
@@ -54,6 +57,7 @@ class Personnage{
     }
     public void setLv(int lv) {
         this.Lv = lv;
+        setBarExperience(this.Lv*100);
     }
     public void setForce(int force) {
         this.Force = force;
@@ -66,6 +70,9 @@ class Personnage{
     }
     public void setMaxPv(int maxPv) {
         this.maxPv = maxPv;
+    }
+    public void setBarExperience(int barExperience) {
+        this.barExperience = barExperience;
     }
     public void attaque(Personnage p){
         if (this.getForce()<p.getForce()) {
